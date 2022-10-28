@@ -1,6 +1,7 @@
 
 class Pet
     attr_reader :day
+    
     def initialize(name, type)
         @health = @food = @energy = @happiness = @cleanness = 50
         @name = name

@@ -1,6 +1,6 @@
 
 class Pet
-
+    attr_reader :day
     def initialize(name, type)
         @health = @food = @energy = @happiness = @cleanness = 50
         @name = name
@@ -83,7 +83,6 @@ class Pet
                 p "Оберіть від 1 до 7 і 8 для зевершення"    
             end
             command = gets.to_i
-            p "Ігрових днів проведено: #{@day}"
         end
     end
 
@@ -231,7 +230,10 @@ class Pet
     end
 
     def check_energy
-        if @energy > 25
+        if @energy > 150
+            @energy = @health = 22
+            "Із за надлишку енегрії тваринка перестала себе контролювати і бігала як навіжена, а потім ще й поранилась" 
+        elsif    @energy > 25
             "Все добре, тваринка повна енергії"
         elsif (@energy <= 25 && @energy > 15)
             "Улюбленець cтомився і скоро захоче спати"
@@ -282,3 +284,4 @@ pet = Pet.new(name, type)
 p "Натисніть 1 до 5 щоб виконати прешу дію з вашим новим улюбленцем"
 command = gets.to_i
 pet.control(command)
+p "Ігрових днів проведено: #{pet.day}"

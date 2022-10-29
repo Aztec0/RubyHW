@@ -78,7 +78,7 @@ class Pet
         p '------'
         p menu
       when 6
-        p spotting(num = rand(1..40))
+        p spotting(rand(1..40))
       when 7
         p stats
       else
@@ -199,7 +199,7 @@ class Pet
 
   def check_happiness
     if @happiness > 150
-      'Улюбленець так загрався, що не помітив і травмував себе'
+      p 'Улюбленець так загрався, що не помітив і травмував себе'
       p "Щастя понижено до: #{@happiness = 30}"
     elsif @happiness >= 25 && @happiness <= 150
       'Все добре, тваринка щаслива'
@@ -216,7 +216,7 @@ class Pet
 
   def check_cleanness
     if @cleanness > 150
-      'Надмірна охайність призводить до великих проблем'
+      p 'Надмірна охайність призводить до великих проблем'
       p "Щастя понижено до: #{@cleanness = 30}"
     elsif @cleanness >= 25 && @cleanness <= 150
       'Все добре, тваринка чиста'

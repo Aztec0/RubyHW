@@ -68,7 +68,7 @@ class Pet
       when 5
         p pass_time(command)
         p '------'
-        p stats
+        p "Ігрових днів проведено: #{@day}"
         p '------'
         p check_health
         p check_food

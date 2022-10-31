@@ -13,6 +13,6 @@
 ```
 Далі в терміналі введіть:
 ```
-ruby tamagochi.rb
+ruby tamagochi_control.rb
 ```
 i насолоджуйтесь, приємної гри.

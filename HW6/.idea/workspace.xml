@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c922f61b-4522-4413-8cd9-de71f12a55a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/.idea/first_api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW7/first_api/config/database.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2I0uARlx1bK3m2u1DzyOFHGxC7S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alex/Desktop/RubyHW/HW6&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable&quot;
+  }
+}</component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$/fisrt_api" />
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c922f61b-4522-4413-8cd9-de71f12a55a9" name="Changes" comment="" />
+      <created>1669330678572</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669330678572</updated>
+      <workItem from="1669330680906" duration="1221000" />
+      <workItem from="1669332008718" duration="163000" />
+      <workItem from="1669332185886" duration="163000" />
+      <workItem from="1669332365906" duration="298000" />
+      <workItem from="1669372284431" duration="2112000" />
+      <workItem from="1669377420746" duration="50000" />
+      <workItem from="1669377574006" duration="1709000" />
+      <workItem from="1669462419028" duration="4150000" />
+      <workItem from="1669553463486" duration="121000" />
+      <workItem from="1669572719376" duration="630000" />
+      <workItem from="1669584237129" duration="863000" />
+      <workItem from="1669589635152" duration="2240000" />
+      <workItem from="1669668231254" duration="303000" />
+      <workItem from="1669668952969" duration="1825000" />
+      <workItem from="1669672758559" duration="243000" />
+      <workItem from="1669720489919" duration="6368000" />
+      <workItem from="1670259843864" duration="145000" />
+      <workItem from="1670334659385" duration="2057000" />
+      <workItem from="1670404354553" duration="1463000" />
+      <workItem from="1670407074688" duration="870000" />
+      <workItem from="1670419450794" duration="2619000" />
+      <workItem from="1670447109649" duration="116000" />
+      <workItem from="1670447408347" duration="38000" />
+      <workItem from="1670447618183" duration="1130000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,3 @@
+source 'https://rubygems.org'
+
+gem "is_forty_two"

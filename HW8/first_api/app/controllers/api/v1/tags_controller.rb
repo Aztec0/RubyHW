@@ -34,7 +34,7 @@ class Api::V1::TagsController < ApplicationController
   private
 
   def set_tag
-    @tag = Tag.find[params[:id]]
+    @tag = Tag.find(params[:id])
   end
 
   def tag_params

@@ -1,0 +1,80 @@
+  [1m[35m (39.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "fisrt_api_test"[0m
+  [1m[35m (181.9ms)[0m  [1m[35mCREATE DATABASE "fisrt_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "author_id" bigint NOT NULL, "status" integer DEFAULT 0)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_articles_on_author_id" ON "articles" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors" CASCADE[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "authors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "status" integer DEFAULT 0, "author_id" bigint NOT NULL, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "body" character varying)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_author_id" ON "comments" ("author_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes" CASCADE[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "author_id" bigint NOT NULL, "likeable_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "likeable_type" character varying)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_likes_on_author_id_and_likeable_id_and_likeable_type" ON "likes" ("author_id", "likeable_id", "likeable_type")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_likes_on_author_id" ON "likes" ("author_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_likes_on_likeable_id_and_likeable_type" ON "likes" ("likeable_id", "likeable_type")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_likes_on_likeable_id" ON "likes" ("likeable_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "taggings" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" bigserial primary key, "article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "tag_id" bigint NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_taggings_on_article_id" ON "taggings" ("article_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "articles" ADD CONSTRAINT "fk_rails_e74ce85cbc"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_f44b1e3c8a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_75ed8123b2"
+FOREIGN KEY ("likeable_id")
+  REFERENCES "articles" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_1f2302367a"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_50f62c287b"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "taggings" ADD CONSTRAINT "fk_rails_9fcd2e236b"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221212123914)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221118090539),
+(20221124211020),
+(20221126134129),
+(20221126135126),
+(20221202123935),
+(20221205183809),
+(20221205183913),
+(20221206122511),
+(20221206122903),
+(20221206145128),
+(20221206152216);
+
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-12-21 17:04:45.819299"], ["updated_at", "2022-12-21 17:04:45.819299"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "f0db5f1732e642bd502d50f6517974afbcd7c129"], ["created_at", "2022-12-21 17:04:45.825034"], ["updated_at", "2022-12-21 17:04:45.825034"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

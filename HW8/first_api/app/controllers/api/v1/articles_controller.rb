@@ -1,6 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[show update destroy]
-  before_action :set_articles, only: %i[index]
 
   def index
     # http://[::1]:3000/api/v1/articles
@@ -21,13 +20,12 @@ class Api::V1::ArticlesController < ApplicationController
     # http://[::1]:3000/api/v1/articles?order=asc/desc
     @articles = Article.order(created_at: params[:order]) if params[:order]
 
-    render json: @articles, status: :ok
+    render json: @articles, each_serializer: Api::V1::ArticleSerializer
   end
 
   def show
     @comments = @article.comments.latest_comments
-    @tags = @article.all_tags
-    render json: { article: @article, comments: @comments, tags: @tags, likes: @article.likes }
+    render json: @article, serializer: Api::V1::ArticleSerializer
   end
 
   def create

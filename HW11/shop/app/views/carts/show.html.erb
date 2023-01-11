@@ -1,0 +1,36 @@
+<div class="container">  
+  <h1>Cart</h1>
+  <% if current_cart.line_items.any? %>
+    <table class="table">
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th></th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+      <% current_cart.line_items.each do |line_item| %>
+        <tr>
+          <td><%= image_tag image_url(line_item.product.image), width: 100, height: 100 %></td>
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.quantity %></td>
+          <td><%= button_to "-", line_item_remove_path(line_item), method: :post, class: "btn btn-secondary" %>
+              <%= button_to "+", line_item_add_path(line_item), method: :post, class: "btn btn-secondary" %></td>
+          <td><%= number_to_currency(line_item.total_price) %></td>
+          <td> <%= button_to "x", line_item_path(:id => line_item), method: :delete, class: "btn btn-light" %></td>
+        </tr>
+      <% end %>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>Total price:</b></td>
+        <td><b><%= number_to_currency current_cart.total_price %></b></td>
+        </tr>
+    </table>
+    <%= button_to 'Chekout', orders_path, class: "btn btn-primary"%>
+  <% else %>
+    <p>No items in the card.</p>
+  <% end %>
+</div>

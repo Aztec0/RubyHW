@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row gy-5 d-flex justify-content-center align-items-center vh-100">
+      <div class="col-auto">
+              <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+        <img src=<%= @product.image %> class="card-img-top" alt=<%= @product.name %>>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= @product.name %></h5>
+            <p class="card-text"><%= @product.description %></p>
+            <p class="card-text"><%= @product.category.title %></p>
+            <p class="card-price"><%= number_to_currency(@product.price) %></p>
+            <% if current_user %>
+              <%= button_to 'Add to cart', line_items_path(product_id: @product.id), class: "btn btn-warning text-end" %>
+            <% end %>
+        </div>
+      </div>
+        <%= link_to "Back to products", products_path %>
+      </div>
+  </div>
+</div>

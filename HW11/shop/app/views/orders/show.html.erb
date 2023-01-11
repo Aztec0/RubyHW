@@ -1,0 +1,32 @@
+<% if current_user %>
+  <div class="container">
+    <h1>Order #<%= @order.id %></h1>
+    <table class='table'>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      <% @order.cart.line_items.each_with_index do |line_item, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= image_tag image_url(line_item.product.image), height: 100, width: 100 %></td>
+          <td><%= line_item.product.name %></td>
+          <td><%= line_item.quantity %></td>
+          <td><%= number_to_currency(line_item.total_price) %></td>
+        </tr>
+      <% end%>
+          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><b>Total price:</b></td>
+          <td><b><%= number_to_currency @order.cart.total_price %></b></td>
+          </tr>
+    </table>
+    <%= button_to 'Proceed to payment', order_pay_path, method: :put, class: "btn btn-success" %>
+    <p><%= link_to "Back to cart", cart_path %></p>
+  </div>
+<% end %>

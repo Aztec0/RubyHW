@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row gy-5 d-flex justify-content-center align-items-center vh-150">
+    <% @products.each do |product| %>
+      <div class="col-auto">
+        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 18rem">
+          <img src=<%= product.image %> class="card-img-top" height="200" width="150" alt=<%= product.name %>>
+            <h5 class="card-title text-center"><%= link_to product.name, product %></h5>
+            <p class="card-price text-light"><%= number_to_currency(product.price) %></p>
+            <% if current_user %>
+              <%= button_to 'Add to cart', line_items_path(product_id: product.id), class: "btn btn-warning text-end" %>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

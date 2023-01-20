@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
+          <% @orders.includes([:cart]).each do |order| %>
           <tr>
           <td><%= order.id %></td>
           <td><%= order.status %></td>

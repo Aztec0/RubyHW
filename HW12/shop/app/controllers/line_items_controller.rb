@@ -38,6 +38,6 @@ class LineItemsController < ApplicationController
   end
 
   def set_line_item
-    @line_item = LineItem.find(params[:id])
+    @line_item = LineItem.includes([:product]).find(params[:id])
   end
 end

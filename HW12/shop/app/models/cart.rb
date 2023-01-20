@@ -18,6 +18,6 @@ class Cart < ApplicationRecord
   end
 
   def total_price
-    line_items.map(&:total_price).sum
+    line_items.includes(:product).map(&:total_price).sum
   end
 end

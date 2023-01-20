@@ -1,0 +1,32 @@
+<header class="p-3 text-bg-dark sticky-top">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <%= link_to "Will be a shop", root_path, class: "navbar-brand" %>
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <ul class="nav col-md-push-3">
+        <% if user_signed_in? %>
+        <li><%= button_to "Cart", cart_path, method: :get, class: "btn" %></a></li>
+        <li><%= button_to "Orders", orders_path, method: :get, class: "btn" %></li>
+        <li><%= button_to "Log out", destroy_user_session_path, method: :get, class: "btn" %></li>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-light me-2" %>
+          <% end %>
+      </ul>
+    </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+<% @products.each do |product| %>
+  <div class="col-lg-4 col-md-6 mb-3 pt-3">
+    <div class="card h-150">
+      <%= image_tag(product.image, class: "card-img-top", height: "250") %>
+      <div class="card-body">
+        <h4 class="card-title text-truncate">
+          <%= link_to product.name, product, class: "text-decoration-none" %>
+        </h4>
+        <div class="row">
+          <div class="col-6">
+            <h5>$<%= product.price %></h5>
+          </div>
+          <div class="col-6">
+            <%if user_signed_in? %>
+              <%= button_to 'Add to cart', line_items_path(product_id: product.id), class:"btn btn-sm btn-outline-secondary" %>
+            <% else %>
+              <%= link_to'Add to cart', new_user_session_path, class:"btn btn-sm btn-outline-secondary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+
+<div class="album">
+  <div class="row">
+    <div class="col-lg-2">
+      <%= render 'shared/categories' %>
+    </div>
+    <div class="col-lg-9 center pt-3">
+      <div class="row">
+        <%= image_tag(@product.image, style: 'height: 400px; width:auto;') %>
+        <h4 class="title">
+          <%= @product.name %>
+        </h4>
+        <h5><%= @product.price %></h5>
+        <p class="card-text text-justify"><%= @product.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+

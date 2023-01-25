@@ -21,10 +21,7 @@ class OrdersController < ApplicationController
   def update
     @order.paid!
 
-    user = current_user
-    order = @order
-
-    UserMailer.order_confirmation(user, order).deliver_now
+    UserMailer.order_confirmation(current_user, @order).deliver_now
 
     cookies.delete(:cart_id)
 

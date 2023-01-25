@@ -1,0 +1,24 @@
+<% @products.includes(image_attachment: :blob).each do |product| %>
+  <div class="col-lg-4 col-md-6 mb-3 pt-3">
+    <div class="card bg-dark">
+        <%= image_tag product.image.variant(:thumb) %>
+      <div class="card-body">
+        <h4 class="card-title text-truncate">
+          <%= link_to product.name, product, class: "text-light" %>
+        </h4>
+        <div class="row">
+          <div class="col-6">
+            <h5 class="text-light">$<%= product.price %></h5>
+          </div>
+          <div class="col-6">
+            <%if user_signed_in? %>
+              <%= button_to 'Add to cart', line_items_path(product_id: product.id), class:"btn-lihgt btn-sm btn-warning" %>
+            <% else %>
+              <%= link_to'Add to cart', new_user_session_path, class:"btn-light btn-sm btn-warning" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

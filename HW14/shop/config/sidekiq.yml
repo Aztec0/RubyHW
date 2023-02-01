@@ -1,0 +1,7 @@
+:scheduler:
+  :schedule:
+    randomly_winner:
+      cron: "0 0 1 * * Europe/Kiev" # At 00:00 on the 1st of every month in Europe/Kiev
+      class: "LotteryWorker"
+      queue: "default"
+      description: "Run service select 2 users from completed orders processed in the range of the month and send them an email once per month"

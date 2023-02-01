@@ -1,0 +1,10 @@
+<h1>Order confirmation</h1>
+
+<h3>Dear, <%= @user.email %>, thank you for your order. </h3>
+
+<p>Your order has been paid.
+  We will send your product within 3 days.</p>
+
+<h3>Here the details of your order:</h3>
+
+<%= render partial: 'order_items' %>

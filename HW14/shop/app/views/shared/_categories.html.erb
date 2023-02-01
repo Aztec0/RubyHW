@@ -1,0 +1,11 @@
+
+
+    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+      <ul class="nav nav-pills column">
+        <li class="nav-item">
+          <% Category.all.each do |category| %>
+            <%= link_to category.title, category_path(category), class: 'nav-link', id: category.id %>
+          <% end %>
+        </li>
+      </ul>
+    </div>

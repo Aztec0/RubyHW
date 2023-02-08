@@ -1,0 +1,17 @@
+<div class="album">
+    <div class="row">
+      <div class="col-lg-2">
+        <%= render 'shared/categories' %>
+      </div>
+      <div class="col-lg-9 center">
+        <div class="row">
+          <%= turbo_stream_from "products" %>
+          <% @products.each do |product| %>
+          <%= render partial: 'products/products', locals: { product: product } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
